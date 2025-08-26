@@ -1,3 +1,36 @@
+# Job Finder Website
+
+A modern, full-stack job board web application built with Next.js, Prisma, PostgreSQL, and Tailwind CSS. Features include job search, posting, authentication, dashboard, and application management.
+
+## Features
+- Browse and search jobs
+- Post new jobs (authenticated users)
+- Apply for jobs
+- User dashboard for posted and applied jobs
+- Responsive and mobile-friendly UI
+- Authentication with NextAuth.js
+- Prisma ORM with PostgreSQL
+
+## Tech Stack
+- Next.js 15 (App Router)
+- React 19
+- Prisma ORM
+- PostgreSQL
+- Tailwind CSS
+- NextAuth.js
+- Shadcn UI
+
+## Getting Started
+1. Clone the repo
+2. Install dependencies: `npm install`
+3. Set up your `.env` with a PostgreSQL database URL
+4. Run migrations: `npx prisma migrate dev`
+5. Start the dev server: `npm run dev`
+
+---
+
+Generated Prisma client is located in `src/generated/prisma` and is ignored from version control.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
