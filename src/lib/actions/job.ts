@@ -7,6 +7,9 @@ import prisma from "../prisma";
 import { Session } from "next-auth";
 
 export async function getMyJobApplications(session: Session) {
+  if (!session?.user?.id) {
+    throw new Error("Unauthorized");
+  }
   const applications = await prisma.application.findMany({
     where: { userId: session.user.id },
     include: { job: { include: { postedBy: true } } },

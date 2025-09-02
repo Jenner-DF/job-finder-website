@@ -8,14 +8,14 @@ import {
 } from "@/components/ui/card";
 import { getMyJobApplications } from "@/lib/actions/job";
 import { formatDistanceToNow } from "date-fns";
-import { ArrowRightToLine, ClipboardPlus } from "lucide-react";
+import { ArrowRightToLine } from "lucide-react";
 import Link from "next/link";
 import Case from "case";
 import { auth } from "../../../../auth";
 import { redirect } from "next/navigation";
 const JobApplicationsPage = async () => {
   const session = await auth();
-  if (!session) redirect("/auth/signin");
+  if (!session?.user) redirect("/auth/signin");
   const applications = await getMyJobApplications(session);
   console.log(applications);
   return (
