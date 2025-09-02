@@ -30,5 +30,14 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
       }
       return session;
     },
-  }, //JWT runs after user signs in only once
+    async redirect({ url, baseUrl }) {
+      // If OAuth was canceled, strip the error param
+      if (url.includes("error=OAuthCallbackError")) {
+        return baseUrl + "/auth/signin";
+      }
+      // Normal redirect logic
+      return url.startsWith(baseUrl) ? url : baseUrl;
+    },
+  },
+  //JWT runs after user signs in only once
 });

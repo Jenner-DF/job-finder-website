@@ -11,8 +11,12 @@ import { formatDistanceToNow } from "date-fns";
 import { ArrowRightToLine, ClipboardPlus } from "lucide-react";
 import Link from "next/link";
 import Case from "case";
+import { auth } from "../../../../auth";
+import { redirect } from "next/navigation";
 const JobApplicationsPage = async () => {
-  const applications = await getMyJobApplications();
+  const session = await auth();
+  if (!session) redirect("/auth/signin");
+  const applications = await getMyJobApplications(session);
   console.log(applications);
   return (
     <Card>
